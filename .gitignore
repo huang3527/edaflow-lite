@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# venv
+.venv/
+env/
+venv/
+
+# OS
+.DS_Store
+
+# Outputs
+out/
+slack_distribution.png

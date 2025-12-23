@@ -1,0 +1,58 @@
+# Mock STA Timing Report (edaflow-lite)
+# Format is inspired by common STA tools but simplified.
+
+Startpoint: U_TOP/U_REG_A/Q (rising edge-triggered flip-flop)
+Endpoint:   U_TOP/U_REG_B/D (rising edge-triggered flip-flop)
+Path Group: clk_core
+Path Type:  max
+
+  Point                                    Incr     Path
+  ----------------------------------------------------------
+  clock clk_core (rise edge)               0.00     0.00
+  clock network delay                      0.18     0.18
+  U_TOP/U_REG_A/CQ                         0.09     0.27
+  U_TOP/U_COMB1/Z                          0.22     0.49
+  U_TOP/U_COMB2/Z                          0.31     0.80
+  U_TOP/U_REG_B/D                          0.00     0.80
+
+  data required time                       0.74
+  data arrival time                        0.80
+  ----------------------------------------------------------
+  slack (VIOLATED)                        -0.06
+
+============================================================
+
+Startpoint: U_TOP/U_REG_C/Q (rising edge-triggered flip-flop)
+Endpoint:   U_TOP/U_REG_D/D (rising edge-triggered flip-flop)
+Path Group: clk_core
+Path Type:  max
+
+  data required time                       1.20
+  data arrival time                        1.05
+  slack (MET)                              0.15
+
+============================================================
+
+Startpoint: U_TOP/U_INPORT (input port)
+Endpoint:   U_TOP/U_REG_E/D (rising edge-triggered flip-flop)
+Path Group: clk_io
+Path Type:  max
+
+  data required time                       0.60
+  data arrival time                        0.66
+  slack (VIOLATED)                        -0.06
+
+  note: transition violation suspected
+============================================================
+
+Startpoint: U_TOP/U_REG_F/Q (rising edge-triggered flip-flop)
+Endpoint:   U_TOP/U_OUTPORT (output port)
+Path Group: clk_io
+Path Type:  max
+
+  data required time                       0.90
+  data arrival time                        1.05
+  slack (VIOLATED)                        -0.15
+
+  note: max_capacitance violation suspected
+============================================================
