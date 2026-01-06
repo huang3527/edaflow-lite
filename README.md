@@ -1,4 +1,5 @@
 # edaflow-lite
+A minimal, end-to-end mock EDA signoff pipeline built to demonstrate parsing, data normalization, and automation workflows.
 
 A lightweight mock "EDA signoff" flow:
 - Parse a simplified STA timing report
