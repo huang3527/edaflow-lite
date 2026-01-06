@@ -172,6 +172,13 @@ def build_summary_md(
 - `summary.json`
 - `top_violations.csv`
 - `slack_distribution.png`
+
+## Recommended Actions (triage)
+
+1. Start with **worst WNS** paths in `top_violations.csv` and confirm whether they are dominated by logic depth vs. clock uncertainty.
+2. If violations cluster in a single `path_group`, prioritize **group-level constraints** and **clock tree assumptions**.
+3. If inferred types show `transition` / `max_capacitance`, validate **slew/cap constraints** and fix high-fanout nets first.
+
 """
     return summary
 
