@@ -26,6 +26,6 @@ slack (MET)                              0.05
     dfv = filter_paths(df, group="g1", violations_only=True)
     assert len(dfv) == 1
     assert dfv.iloc[0]["path_group"] == "g1"
-    assert dfv.iloc[0]["slack"] < 0    assert len(dfv) == 1
+    assert dfv.iloc[0]["slack"] < 0
     assert dfv.iloc[0]["path_group"] == "g1"
     assert dfv.iloc[0]["slack"] < 0
