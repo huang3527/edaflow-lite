@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: edaflow-lite
+Version: 0.1.0
+Summary: Lightweight mock EDA signoff flow: parse timing report, summarize violations, visualize slack distribution, baseline ML scaffold.
+Requires-Python: >=3.10
+Requires-Dist: matplotlib>=3.8
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: pandas>=2.0; extra == "dev"
+Requires-Dist: scikit-learn>=1.4; extra == "dev"

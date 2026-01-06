@@ -1,0 +1,28 @@
+[project]
+name = "edaflow-lite"
+version = "0.1.0"
+description = "Lightweight mock EDA signoff flow: parse timing report, summarize violations, visualize slack distribution, baseline ML scaffold."
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pandas>=2.0",
+  "scikit-learn>=1.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# 這行是關鍵：明確指定要打包的 package
+packages = ["parser", "visualize"]
