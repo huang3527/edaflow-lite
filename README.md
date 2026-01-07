@@ -91,3 +91,15 @@ python edaflow.py --report reports/timing_report.txt --outdir out --violations-o
 	•	Dashboard integration (Streamlit)
 	•	Unit tests + CI
 	•	Type checking (mypy) + lint (ruff)
+
+## v0.4 (Streamlit Dashboard)
+
+Run:
+```bash
+streamlit run app.py
+```
+### Features:
+	•	Upload or use sample timing report
+	•	Filter by path_group, violations-only, topk
+	•	View WNS/TNS metrics, top violations table, slack histogram
+	•	Download top_violations.csv and summary.md
