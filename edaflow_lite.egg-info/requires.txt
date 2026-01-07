@@ -4,3 +4,6 @@ matplotlib>=3.8
 pytest>=8.0
 pandas>=2.0
 scikit-learn>=1.4
+ruff>=0.5
+mypy>=1.10
+types-tabulate

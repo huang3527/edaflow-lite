@@ -2,13 +2,12 @@ from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import dataclass
 from datetime import datetime
 from parser.adapters.mock_sta import MockSTAAdapter
 from parser.timing_parser import load_report
-from parser.violation_summary import compute_stats, infer_violation_type, summarize
+from parser.violation_summary import infer_violation_type, summarize
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Optional
 
 import pandas as pd
 
@@ -73,7 +72,6 @@ def build_summary_md(
     # overall stats from ALL parsed paths (not filtered)
     # (You can change this to filtered-only if you prefer)
     # We'll display both overall and current view
-    from parser.timing_parser import TimingPath
 
     # Rebuild TimingPath list for stats (small dataset; ok)
     # If you want to avoid this, compute directly from df.
@@ -235,8 +233,9 @@ def main():
     write_csv(top_df, outdir / "top_violations.csv")
 
     # 5) slack_distribution.png (all paths; change to df_view if you want filtered plot)
-    png_path = plot_slack_distribution(
-        df_all["slack"].tolist(), outdir / "slack_distribution.png"
+    plot_slack_distribution(
+        df_all["slack"].tolist(),
+        outdir / "slack_distribution.png",
     )
 
     # 6) summary.md (one-page report)

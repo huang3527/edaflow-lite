@@ -1,6 +1,5 @@
 from parser.timing_parser import parse_timing_report
 
-import pandas as pd
 
 from edaflow import _paths_to_df, filter_paths
 
