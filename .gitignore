@@ -15,3 +15,6 @@ venv/
 # Outputs
 out/
 slack_distribution.png
+
+.streamlit/
+*.log
