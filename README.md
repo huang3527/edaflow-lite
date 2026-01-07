@@ -94,7 +94,12 @@ python edaflow.py --report reports/timing_report.txt --outdir out --violations-o
 
 ## v0.4 (Streamlit Dashboard)
 
-Run:
+### Artifact viewer workflow
+1) Generate artifacts:
+```bash
+python edaflow.py --report reports/timing_report.txt --outdir out
+```
+2)	Launch dashboard:
 ```bash
 streamlit run app.py
 ```
@@ -103,3 +108,4 @@ streamlit run app.py
 	•	Filter by path_group, violations-only, topk
 	•	View WNS/TNS metrics, top violations table, slack histogram
 	•	Download top_violations.csv and summary.md
+
