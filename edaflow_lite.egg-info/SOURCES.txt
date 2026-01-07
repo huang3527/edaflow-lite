@@ -8,6 +8,7 @@ edaflow_lite.egg-info/top_level.txt
 parser/__init__.py
 parser/timing_parser.py
 parser/violation_summary.py
+tests/test_edaflow_filters.py
 tests/test_timing_parser.py
 tests/test_violation_summary.py
 visualize/__init__.py

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import asdict, dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Pattern
 
 
 @dataclass
@@ -38,10 +38,12 @@ _NOTE_RE = re.compile(r"^note:\s*(.+)$", re.MULTILINE)
 
 
 def _extract_one(
-    pattern: re.Pattern, text: str, default: Optional[str] = None
-) -> Optional[str]:
+    pattern: Pattern[str], text: str, default: str | None = None
+) -> str | None:
     m = pattern.search(text)
-    return m.group(1).strip() if m else default
+    if m:
+        return m.group(1).strip()
+    return default
 
 
 def parse_timing_report(report_text: str) -> List[TimingPath]:
@@ -58,8 +60,8 @@ def parse_timing_report(report_text: str) -> List[TimingPath]:
     for block in blocks:
         startpoint = _extract_one(_START_RE, block)
         endpoint = _extract_one(_END_RE, block)
-        path_group = _extract_one(_GROUP_RE, block, default="UNKNOWN")
-        path_type = _extract_one(_TYPE_RE, block, default="UNKNOWN")
+        path_group = _extract_one(_GROUP_RE, block, default="UNKNOWN") or "UNKNOWN"
+        path_type = _extract_one(_TYPE_RE, block, default="UNKNOWN") or "UNKNOWN"
 
         slack_m = _SLACK_RE.search(block)
         if not slack_m:
